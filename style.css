@@ -1,0 +1,74 @@
+body {
+    background-color: #1A2F51;
+    font-family: cursive;
+}
+#game {
+    padding: 10px;
+    background-color: whitesmoke;
+    background-image: url(images/fondo-cuadricula.svg);
+    background-size: 15px;
+}
+h1 {
+    color: whitesmoke;
+    text-align: center;
+}
+.table {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 200px;
+    width: 200px;
+    background-image: url(images/table.svg);
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.mark-x {
+    background-image: url(images/x.svg);
+    background-size: 100% 100%;
+}
+.mark-o {
+    background-image: url(images/o.svg);
+    background-size: 100% 100%;
+}
+.line {
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+}
+.line-winner-1 {
+    background-image: url(images/line-winner-1.svg);
+}
+.line-winner-2 {
+    background-image: url(images/line-winner-2.svg);
+}
+.line-winner-3 {
+    background-image: url(images/line-winner-1.svg);
+    transform: rotate(180deg);
+}
+.line-winner-4 {
+    background-image: url(images/line-winner-1.svg);
+    transform: rotate(270deg);
+}
+.line-winner-5 {
+    background-image: url(images/line-winner-2.svg);
+    transform: rotate(90deg);
+}
+.line-winner-6 {
+    background-image: url(images/line-winner-1.svg);
+    transform: rotate(90deg);
+}
+
+.line-winner-7 {
+    background-image: url(images/line-winner-3.svg);
+}
+.line-winner-8 {
+    background-image: url(images/line-winner-3.svg);
+    transform: rotate(90deg);
+}
+
+.box {
+    /* border: 1px solid; */
+}
