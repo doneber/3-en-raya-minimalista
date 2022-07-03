@@ -1,5 +1,3 @@
-const boxList = document.querySelectorAll('.table .box')
-let turn = true
 function win(i, j, k) {
     if (movesArray[i] == movesArray[j] &&
         movesArray[j] == movesArray[k] &&
@@ -34,6 +32,11 @@ function numberWin() {
     }
     return null
 }
+
+// Control de turnos de X y O
+let turn = true
+// Selecciona las cajas del tablero
+const boxList = document.querySelectorAll('.table .box')
 const movesArray = new Array(9).fill(null)
 boxList.forEach(function (box, index) {
     box.addEventListener('click', function () {
