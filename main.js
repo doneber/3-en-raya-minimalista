@@ -32,27 +32,55 @@ function numberWin() {
     }
     return null
 }
+let movesArray = new Array(9).fill(null)
+let x = 0
+let o = 0
 
 // Control de turnos de X y O
 let turn = true
-// Selecciona las cajas del tablero
-const boxList = document.querySelectorAll('.table .box')
-const movesArray = new Array(9).fill(null)
-boxList.forEach(function (box, index) {
-    box.addEventListener('click', function () {
-        if (turn) {
-            box.classList.add('mark-x')
-        } else {
-            box.classList.add('mark-o')
-        }
-        movesArray[index] = turn
-        const mayWinner = numberWin()
-        if (mayWinner) {
-            const lineWinner = document.createElement('div')
-            lineWinner.classList.add('line')
-            lineWinner.classList.add('line-winner-' + mayWinner)
-            document.querySelector('.table').append(lineWinner)
-        }
-        turn = !turn
-    }, { once: true })
+function newGame() {
+    // Carge las cajas
+    document.querySelector('.table').innerHTML = `
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    `
+
+    // Selecciona las cajas del tablero
+    const boxList = document.querySelectorAll('.table .box')
+    boxList.forEach(function (box, index) {
+        box.addEventListener('click', function () {
+            if (turn) {
+                box.classList.add('mark-x')
+            } else {
+                box.classList.add('mark-o')
+            }
+            movesArray[index] = turn
+            const mayWinner = numberWin()
+            if (mayWinner) {
+                const lineWinner = document.createElement('div')
+                lineWinner.classList.add('line')
+                lineWinner.classList.add('line-winner-' + mayWinner)
+                document.querySelector('.table').append(lineWinner)
+                if (turn) x++
+                else o++
+            }
+            document.querySelector('#x').innerText = x
+            document.querySelector('#o').innerText = o
+
+            turn = !turn
+        }, { once: true })
+    })
+}
+newGame()
+
+document.querySelector('#restart').addEventListener('click', function () {
+    movesArray = new Array(9).fill(null)
+    newGame()
 })
